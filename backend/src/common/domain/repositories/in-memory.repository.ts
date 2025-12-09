@@ -52,7 +52,7 @@ export abstract class InMemoryRepository<Model extends ModelProps>  implements R
     const sort_dir = props.sort_dir ?? null
     const filter = props.filter ?? null
 
-    const filteredItems = await this.appliyFilter(this.items, filter)
+    const filteredItems = await this.applyFilter(this.items, filter)
 
     const orderedItems  = await this.applySort(filteredItems, sort, sort_dir)
 
@@ -70,7 +70,7 @@ export abstract class InMemoryRepository<Model extends ModelProps>  implements R
   }
 
   //filter
-  protected abstract  appliyFilter(items: Model[], filter: string | null): Promise<Model[]>
+  protected abstract  applyFilter(items: Model[], filter: string | null): Promise<Model[]>
 
   //sort
   protected async applySort(items: Model[], sort: string | null, sort_dir: string | null): Promise<Model[]>{
