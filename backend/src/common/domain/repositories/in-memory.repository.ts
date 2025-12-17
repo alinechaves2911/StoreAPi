@@ -56,7 +56,7 @@ export abstract class InMemoryRepository<Model extends ModelProps>  implements R
 
     const orderedItems  = await this.applySort(filteredItems, sort, sort_dir)
 
-    const paginatedItems = await this.applyPaginete(orderedItems, page, per_page)
+    const paginatedItems = await this.applyPaginate(orderedItems, page, per_page)
 
     return {
       items: paginatedItems,
@@ -90,7 +90,7 @@ export abstract class InMemoryRepository<Model extends ModelProps>  implements R
   }
 
   //page
-  protected async applyPaginete(
+  protected async applyPaginate(
     items:Model[],
     page: number,
     per_page:number,
